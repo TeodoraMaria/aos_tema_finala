@@ -1,0 +1,24 @@
+version: '3'
+
+services: 
+  docker-mysql:
+    image: mysql:latest
+    container_name: aos-mysql
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=people
+      - MYSQL_PASSWORD=root
+  spring-boot-jpa-docker-webapp:
+    image: app
+    depends_on:
+      - docker-mysql
+    ports:
+      - 8080:8080
+    environment:
+      - DATABASE_HOST=docker-mysql
+      - DATABASE_USER=root
+      - DATABASE_PASSWORD=root
+      - DATABASE_NAME=people  
+      - DATABASE_PORT=3306

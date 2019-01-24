@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>SHOP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <link href="../static/assets/css/bootstrap.css" rel='stylesheet' th:href="@{/assets/css/bootstrap.css}"
+          type='text/css'/>
+    <link href="../static/assets/css/login_overlay.css" rel='stylesheet' th:href="@{/assets/css/login_overlay.css}"
+          type='text/css'/>
+    <link href="../static/assets/css/style6.css" rel='stylesheet' th:href="@{/assets/css/style6.css}" type='text/css'/>
+    <link href="../static/asset2s/css/style.css" rel='stylesheet' th:href="@{/assets/css/style.css}" type='text/css'/>
+    <link href="../static/assets/css/shop.css" rel='stylesheet' th:href="@{/assets/css/shop.css}" type='text/css'/>
+    <link href="../static/assets/css/fontawesome-all.css" th:href="@{/assets/css/fontawesome-all.css}" rel="stylesheet"
+          type="text/css">
+</head>
+
+<body>
+<div class="banner-top container-fluid" id="home">
+    <!-- header -->
+    <header>
+        <div class="row">
+
+            <div class="col-md-6 offset-md-3 logo-w3layouts text-center">
+                <h1 class="logo-w3layouts">
+                    <a class="navbar-brand" href="index.html">
+                        MicroShop </a>
+                </h1>
+            </div>
+
+            <div class="col-md-3 top-info-cart text-right mt-lg-4">
+                <ul class="cart-inner-info">
+                    <li class="button-log">
+                        <a class="btn-open" href="/login">
+                            LOGIN
+                        </a>
+                        <a href="/checkout" th:text="${cart.size()}"></a>
+                    </li>
+                    <li class="galssescart galssescart2 cart cart box_1">
+                        <form action="#" method="post" class="last">
+                            <input type="hidden" name="cmd" value="_cart">
+                            <input type="hidden" name="display" value="1">
+                            <button class="top_googles_cart" type="submit" name="submit" value="">
+                                My Cart
+                                <i class="fas fa-cart-arrow-down"></i>
+                            </button>
+                        </form>
+                    </li>
+                </ul>
+                <!---->
+                <div class="overlay-login text-left">
+                    <button type="button" class="overlay-close1">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <!---->
+
+            </div>
+        </div>
+        <div class="search">
+            <div class="mobile-nav-button">
+                <button id="trigger-overlay" type="button">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <!-- open/close -->
+            <div class="overlay overlay-door">
+                <button type="button" class="overlay-close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+                <form action="#" method="post" class="d-flex">
+                    <input class="form-control" type="search" placeholder="Search here..." required="">
+                    <button type="submit" class="btn btn-primary submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+
+            </div>
+            <!-- open/close -->
+        </div>
+        <label class="top-log mx-auto"></label>
+    </header>
+    <!-- //header -->
+    <!-- banner -->
+</div>
+<!--//banner-sec-->
+<section class="banner-bottom-wthreelayouts py-lg-5 py-3">
+    <div class="container-fluid">
+        <div class="inner-sec-shop px-lg-4 px-3">
+            <div class="row">
+                <div class="col-md-3 product-men women_two" th:each="product : ${products}">
+                    <div class="product-googles-info googles">
+                        <div class="men-pro-item">
+                            <div class="men-thumb-item">
+                                <img src="images/s1.jpg" class="img-fluid" alt="">
+                                <div class="men-cart-pro">
+                                </div>
+                            </div>
+                            <div class="item-info-product">
+                                <div class="info-product-price">
+                                    <div class="grid_meta">
+                                        <div class="product_price">
+                                            <h4>
+                                                <a th:text="${product.getName()}"></a>
+                                            </h4>
+                                            <div class="grid-price mt-2">
+                                                <span class="money " th:text="${product.getPrice()}"></span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="googles single-item hvr-outline-out">
+                                        <form method="get">
+                                            <input type="hidden" name="cmd" value="_cart">
+                                            <input type="hidden" name="add" value="1">
+                                            <input type="hidden" name="googles_item" th:value="${product.getName()}">
+                                            <input type="hidden" name="amount" th:value="${product.getPrice()}">
+                                            <button type="submit" th:action="${cart.add(product)}" class="googles-cart pgoogles-cart">
+                                                <i class="fas fa-cart-plus"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--//row-->
+        </div>
+    </div>
+</section>
+<!-- about -->
+<!--footer -->
+<footer class="py-lg-5 py-3">
+    <div class="container-fluid px-lg-5 px-3">
+        <div class="row footer-top-w3layouts">
+            <div class="col-lg-4 offset-lg-4 footer-grid-w3ls">
+                <div class="footer-title">
+                    <h3>About Us</h3>
+                </div>
+                <div class="footer-text">
+                    <p>Curabitur non nulla sit amet nislinit tempus convallis quis ac lectus. lac inia eget consectetur
+                        sed, convallis at
+                        tellus. Nulla porttitor accumsana tincidunt.</p>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</footer>
+
+<!--jQuery-->
+<script src="../static/js/jquery-2.2.3.min.js" th:src="@{/js/jquery-2.2.3.min.js}"></script>
+<!-- newsletter modal -->
+<!-- Modal -->
+<!-- Modal -->
+<!-- // modal -->
+
+<!--search jQuery-->
+<script src="../static/js/modernizr-2.6.2.min.js" th:src="@{/js/modernizr-2.6.2.min.js}"></script>
+<script src="../static/js/classie-search.js" th:src="@{/js/classie-search.js}"></script>
+<script src="../static/js/demo1-search.js" th:src="@{/js/demo1-search.js}"></script>
+<!--//search jQuery-->
+<!-- cart-js -->
+<script src="../static/js/minicart.js" th:src="@{/js/minicart.js}"></script>
+<script>
+    googles.render();
+
+    googles.cart.on('googles_checkout', function (evt) {
+        var items, len, i;
+
+        if (this.subtotal() > 0) {
+            items = this.items();
+
+            for (i = 0, len = items.length; i < len; i++) {
+            }
+        }
+    });
+</script>
+<!-- //cart-js -->
+<script src="../static/js/move-top.js" th:src="@{/js/move-top.js}"></script>
+<script src="../static/js/easing.js" th:src="@{/js/easing.js}"></script>
+<script>
+    jQuery(document).ready(function ($) {
+        $(".scroll").click(function (event) {
+            event.preventDefault();
+            $('html,body').animate({
+                scrollTop: $(this.hash).offset().top
+            }, 900);
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $().UItoTop({
+            easingType: 'easeOutQuart'
+        });
+
+    });
+</script>
+<!--// end-smoth-scrolling -->
+
+<script src="../static/js/bootstrap.js" th:src="@{/js/bootstrap.js}"></script>
+</body>
+
+</html>

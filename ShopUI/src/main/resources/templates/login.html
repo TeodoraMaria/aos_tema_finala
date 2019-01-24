@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>ShopLogin</title>
+    <link href="../static/assets/css/bootstrap.css" rel='stylesheet' th:href="@{/assets/css/bootstrap.css}"
+          type='text/css'/>
+    <link href="../static/assets/css/style.css" rel='stylesheet' th:href="@{/assets/css/style.css}" type='text/css'/>
+    <link href="../static/assets/css/fontawesome-all.css" th:href="@{/assets/css/fontawesome-all.css}" rel="stylesheet"
+          type="text/css">
+
+</head>
+<body>
+<div class="banner-top container-fluid" id="home">
+    <!-- header -->
+    <header>
+        <div class="row">
+            <div class="col-md-6 offset-md-3 logo-w3layouts text-center">
+                <h1 class="logo-w3layouts">
+                    <a class="navbar-brand" href="index.html">
+                        LOGIN </a>
+                </h1>
+            </div>
+        </div>
+    </header>
+    <!-- //header -->
+    <!-- banner -->
+</div>
+<section class="form-wrapper col-md-6 offset-md-3">
+    <form action="#" th:action="@{/loginUser}" th:object="${user}" method="post">
+        <div class="form-group">
+            <label class="mb-2">Email</label>
+            <input type="email" th:field="*{email}" class="form-control" id="exampleInputEmail1"
+                   aria-describedby="emailHelp" placeholder="" required="">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+            <label class="mb-2">Password</label>
+            <input type="password" th:field="*{password}" class="form-control" id="exampleInputPassword1" placeholder=""
+                   required="">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary submit">Sign In</button>
+            <a class="btn btn-primary submit" th:href="@{/register}">Register</a>
+        </div>
+    </form>
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h4 class="login-failed" th:text="${loginValidation}"></h4>
+        </div>
+    </div>
+</section>
+</body>
+</html>

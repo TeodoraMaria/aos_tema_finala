@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SHOPUI</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>ShopLogin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="../static/assets/css/addproduct.css" rel='stylesheet' th:href="@{/assets/css/style.css}" type='text/css'/>
+        <link href="../static/assets/css/style.css" rel='stylesheet' th:href="@{/assets/css/style.css}" type='text/css' />
+    <link href="../static/assets/css/bootstrap.css" rel='stylesheet' th:href="@{/assets/css/bootstrap.css}" type='text/css' />
+
+    <link href="../static/assets/css/fontawesome-all.css" th:href="@{/assets/css/fontawesome-all.css}" rel="stylesheet"
+          type="text/css">
+</head>
+<body>
+	<header>
+        <div class="row">
+            <div class="col-md-6 offset-md-3 logo-w3layouts text-center">
+                <h1 class="logo-w3layouts">
+                    <a class="navbar-brand" href="index.html">
+                        Add product </a>
+                </h1>
+            </div>
+        </div>
+    </header>
+	<section class="addproduct-section">
+		<div class="container">
+			<div class="row">
+			    <form class="col-md-6 offset-md-3 product-form" action="/addProductToDatabase" method="post">
+			      <div class="row">
+			        <div class="input-field col s12">
+			          <input placeholder="" id="product_name" name="name" type="text" class="validate">
+			          <label for="product_name">Product name</label>
+			        </div>
+			      </div>
+			      <div class="row">
+			        <div class="input-field col s12">
+			          <input placeholder="" id="product_price" name="price" type="number" step="0.01" class="validate">
+			          <label for="product_price">Product price</label>
+			        </div>
+			      </div>
+			    <div class="row">
+			        <div class="input-field col s12">
+			          <textarea id="description" name="description" class="materialize-textarea"></textarea>
+			          <label for="description">Description</label>
+			        </div>
+			    </div>
+
+			    <form action="#">
+			    <label>Product image</label>
+			    <div class="file-field input-field">
+			      <div class="btn btn-primary">
+			        <span>Select image</span>
+			        <input type="file" name="imagePath">
+			      </div>
+			      <div class="file-path-wrapper">
+			        <input class="file-path validate" type="text">
+			      </div>
+			    </div>
+			  <button type="submit" class="btn btn-primary submit col-md-12">Add product</button>
+			  </form>
+			</form>
+		</div>
+	</section>
+</body>
+</html>

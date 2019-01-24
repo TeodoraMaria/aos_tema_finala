@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>ShopRegister</title>
+    <link href="../static/assets/css/bootstrap.css" rel='stylesheet' th:href="@{/assets/css/bootstrap.css}" type='text/css' />
+    <link href="../static/assets/css/style.css" rel='stylesheet' th:href="@{/assets/css/style.css}" type='text/css' />
+    <link href="../static/assets/css/fontawesome-all.css" th:href="@{/assets/css/fontawesome-all.css}" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+<div class="banner-top container-fluid" id="home">
+    <!-- header -->
+    <header>
+        <div class="row">
+            <div class="col-md-6 offset-md-3 logo-w3layouts text-center">
+                <h1 class="logo-w3layouts">
+                    <a class="navbar-brand" href="index.html">
+                        Register </a>
+                </h1>
+            </div>
+        </div>
+    </header>
+    <!-- //header -->
+    <!-- banner -->
+</div>
+<section class="form-wrapper col-md-6 offset-md-3">
+    <form action="registerUser" method="post" class="creditly-card-form agileinfo_form">
+        <section class="creditly-wrapper wthree, w3_agileits_wrapper">
+            <div class="credit-card-wrapper">
+                <div class="first-row form-group">
+                    <div class="controls">
+                        <label class="control-label">Name*</label>
+                        <input class="billing-address-name form-control" type="text" name="name" placeholder="John Doe">
+                    </div>
+                    <div class="controls">
+                        <label class="control-label">Email*</label>
+                        <input class="billing-address-name form-control" type="text" name="email" placeholder="test@test.com">
+                    </div>
+                    <div class="w3_agileits_card_number_grids">
+                        <div class="w3_agileits_card_number_grid_left">
+                            <div class="controls">
+                                <label class="control-label">Password*</label>
+                                <input class="number credit-card-number form-control" type="password" name="password" inputmode="numeric" autocomplete="cc-number"
+                                       autocompletetype="cc-number" x-autocompletetype="cc-number" placeholder="&#149;&#149;&#149;&#149;">
+                            </div>
+                        </div>
+                        <div class="w3_agileits_card_number_grid_right">
+                            <div class="controls">
+                                <label class="control-label">Retype password*</label>
+                                <input class="security-code form-control"  inputmode="numeric" type="password" name="repassword" placeholder="&#149;&#149;&#149;&#149;">
+                            </div>
+                        </div>
+                        <div class="w3_agileits_card_number_grid_right">
+                            <div class="controls">
+                                <label class="control-label">Phone number</label>
+                                <input class="security-code form-control"  inputmode="numeric" type="number" name="phoneNumber" placeholder="">
+                            </div>
+                        </div>
+                        <div class="w3_agileits_card_number_grid_right">
+                            <div class="controls">
+                                <label class="control-label">Address</label>
+                                <input class="security-code form-control" inputmode="text" type="text" name="address" placeholder="Brasov, Bulevardul Eroilor,nr3">
+                            </div>
+                        </div>
+                        <div class="clear"> </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary submit col-md-12">Register</button>
+            </div>
+        </section>
+    </form>
+</section>
+</body>
+</html>
